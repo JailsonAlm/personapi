@@ -19,8 +19,8 @@ public class Phone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // delega para o banco a estratégia de geração de chaves primárias
-    // generationType.IDENTITY - toda vez que inserir um dado ele vai ser de forma incremental
     private Long id;
+    // generationType.IDENTITY - toda vez que inserir um dado ele vai ser de forma incremental
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)// ao informar esse dado da nossa API ele será cadastrado como obrigatório
