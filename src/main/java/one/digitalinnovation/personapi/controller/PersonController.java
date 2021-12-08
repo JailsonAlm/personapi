@@ -42,6 +42,7 @@ public class PersonController {
         return personService.findById(id);
     }
 
+    // Operação de update
     @PutMapping("/{id}")
     public MessageResponseDTO updateById(@PathVariable Long id,@RequestBody PersonDTO personDTO) throws PersonNotFoundException {
         return personService.updateById(id, personDTO);
