@@ -6,19 +6,22 @@ import one.digitalinnovation.personapi.exception.PersonNotFoundException;
 import one.digitalinnovation.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/people")
+@Controller("/person")
+@RequestMapping(value = "/api/v1/people", method = RequestMethod.GET)
 public class PersonController {
 
     private PersonService personService;
 
-    @Autowired
+    @Autowired(required = true)
     public PersonController(PersonService personService) {
+        super();
         this.personService = personService;
     }
 
@@ -48,7 +51,8 @@ public class PersonController {
     }
 
     // Operação de delete
-    @GetMapping("/{id}")
+//    @GetMapping("/{id}") <- ERRADO
+    @DeleteMapping("/{id}") //<- Certo
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(Long id) throws PersonNotFoundException {
         personService.deleteId(id);

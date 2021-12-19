@@ -26,7 +26,6 @@ public class Person {
     @Column(nullable = false)
     private String lastName;
 
-    // só poderar cadastrar com valores únicos
     @Column(nullable = false, unique = true)
     private String cpf;
 

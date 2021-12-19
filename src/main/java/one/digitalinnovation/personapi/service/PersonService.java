@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 
-@Service // vai indicar para gerenciar uma classe que será responsável por inserir todas as regras de negócio
+@Service
 public class PersonService {
 
     private PersonRepository personRepository;
@@ -28,7 +28,6 @@ public class PersonService {
     }
 
     public MessageResponseDTO createPerson(PersonDTO personDTO){
-        //@RequestBody a firma que está vindo uma requisição do tipo pessoas aqui
         Person personToSave = personMapper.toModel(personDTO);
 
         Person savedPerson = personRepository.save(personToSave);
